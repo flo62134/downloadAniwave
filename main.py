@@ -3,13 +3,9 @@ import time
 import selenium.webdriver.common.by
 from selenium import webdriver
 
-
 def print_hi():
     # List of URLs to browse
     urls = [
-        "https://www.mp4upload.com/8khif8lgoq7o",
-        "https://www.mp4upload.com/rh3uyyobjq3x",
-        "https://www.mp4upload.com/sje6tfcpmkvo",
         "https://www.mp4upload.com/fb5xsbvmduzf",
     ]
 
@@ -17,6 +13,7 @@ def print_hi():
     options = webdriver.ChromeOptions()
     options.add_extension('./extension_1_52_0_0.crx')
     driver = webdriver.Chrome(options=options)
+    driver.get(urls[0])
 
     # Loop through the URLs
     for url in urls:
@@ -36,8 +33,7 @@ def print_hi():
         download_button = driver.find_element(selenium.webdriver.common.by.By.ID, "downloadbtn")
         driver.execute_script("arguments[0].click();", download_button)
 
-        # Wait for 1 minute
-        time.sleep(60)
+        time.sleep(180)
 
     # Close the web driver
     driver.quit()
